@@ -1,0 +1,15 @@
+
+public class Silver extends State{
+    public Silver(Customer C){
+        C.setStatus("SILVER");
+    }
+    
+    @Override
+    public void UpdateStatus(Customer C){
+        if(C.getPoints() >= 1000){
+            C.setState(new Gold(C));
+        } else if (C.getPoints() >= 0 && C.getPoints() < 1000){
+            C.setState(new Silver(C));
+        }
+    }
+}
